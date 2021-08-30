@@ -14,8 +14,7 @@
   ],
   "scripts": {
     "lint": "eslint . --quiet --ignore-path .gitignore",
-    "release": "semantic-release",
-    "postinstall": "husky install"
+    "release": "semantic-release"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
