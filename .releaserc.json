@@ -1,9 +1,7 @@
 {
   "branches": [
-    "release",
     {
-      "name": "master",
-      "prerelease": "alpha"
+      "name": "master"
     }
   ],
   "plugins": [
