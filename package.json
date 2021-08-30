@@ -1,5 +1,5 @@
 {
-  "name": "basis-theory-reactor-formulas-sdk-js",
+  "name": "@basis-theory/basis-theory-reactor-formulas-sdk-js",
   "version": "0.0.1",
   "description": "Javascript SDK for building Basis Theory reactor formulas",
   "repository": "https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js",
