@@ -1,0 +1,12 @@
+{
+  "name": "basis-theory-reactor-formulas-sdk-js",
+  "version": "0.0.1",
+  "description": "Javascript SDK for building Basis Theory reactor formulas",
+  "repository": "https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js",
+  "main": "index.js",
+  "author": {
+    "name": "Basis Theory",
+    "email": "support@basistheory.com"
+  },
+  "license": "UNLICENSED"
+}
