@@ -8,7 +8,7 @@ class BasisTheoryReactorError extends Error {
 
   toRFC7807() {
     return {
-      title: this.message,
+      detail: this.message,
       status: this.status,
       errors: this.validationErrors,
     };
