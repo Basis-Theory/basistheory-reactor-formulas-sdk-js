@@ -1,5 +1,4 @@
 const { InvalidReactorConfigurationError } = require('../src');
-const BasisTheoryReactorError = require('../src/errors/BasisTheoryReactorError');
 
 describe('InvalidReactorConfigurationError', () => {
   it('can be constructed with no args', () => {
