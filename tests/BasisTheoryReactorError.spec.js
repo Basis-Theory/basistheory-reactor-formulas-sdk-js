@@ -92,7 +92,7 @@ describe('BasisTheoryReactorError', () => {
       });
 
       expect(err.toRFC7807()).toMatchObject({
-        title: 'This is an error',
+        detail: 'This is an error',
         status: 400,
         errors: {
           property1: ['error 1', 'error 2'],
