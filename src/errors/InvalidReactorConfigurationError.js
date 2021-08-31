@@ -12,7 +12,11 @@ class InvalidReactorConfigurationError extends BasisTheoryReactorError {
     } else if (typeof errors === 'string') {
       validationErrors[errors] = [`${errors} is invalid`];
     }
-    super('Invalid Reactor Configuration', 400, undefined, validationErrors);
+    super({
+      message: 'Invalid Reactor Configuration',
+      status: 400,
+      propertyValidationErrors: validationErrors,
+    });
   }
 }
 

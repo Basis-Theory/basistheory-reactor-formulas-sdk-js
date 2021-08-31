@@ -1,5 +1,5 @@
 class BasisTheoryReactorError extends Error {
-  constructor(message, status, data, propertyValidationErrors) {
+  constructor({ message, status, data, propertyValidationErrors }) {
     super(message);
     this.status = status;
     this.data = data;

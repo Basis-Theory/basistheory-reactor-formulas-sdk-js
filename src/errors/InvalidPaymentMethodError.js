@@ -2,7 +2,7 @@ const BasisTheoryReactorError = require('./BasisTheoryReactorError');
 
 class InvalidPaymentMethodError extends BasisTheoryReactorError {
   constructor(data) {
-    super('Invalid Payment Method', 402, data);
+    super({ message: 'Invalid Payment Method', status: 402, data });
   }
 }
 
