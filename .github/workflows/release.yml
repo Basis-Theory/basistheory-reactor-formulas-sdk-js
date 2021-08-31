@@ -31,6 +31,9 @@ jobs:
         with:
           install-command: yarn --frozen-lockfile --no-progress --ignore-scripts
 
+      - name: Verify
+        run: make verify
+
       - name: Release
         run: make release
         env:

@@ -35,3 +35,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           eslint: true
           prettier: true
+
+      - name: Verify
+        run: make verify
