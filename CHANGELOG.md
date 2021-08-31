@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.0.1...v1.1.0) (2021-08-31)
+
+
+### Features
+
+* **eng-1265:** Add error types for InvalidPaymentMethod and InvalidReactorConfiguration ([#6](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/6)) ([eaeca71](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/eaeca71a33e6a391fe206fa0ac0e9bf22e7a1cc3))
+
 ## [1.0.1](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.0.0...v1.0.1) (2021-08-30)
 
 
