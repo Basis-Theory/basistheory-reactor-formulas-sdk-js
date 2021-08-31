@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.1.0...v1.1.1) (2021-08-31)
+
+
+### Bug Fixes
+
+* **eng-1265:** Return detail in toRFC8707 instead of title ([#8](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/8)) ([9125de8](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/9125de88148d95bc05c7b0038e41ed35c4c459bf))
+
 # [1.1.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.0.1...v1.1.0) (2021-08-31)
 
 
