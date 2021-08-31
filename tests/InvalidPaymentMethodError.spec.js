@@ -11,7 +11,7 @@ describe('InvalidPaymentMethodError', () => {
   });
 
   it('can be constructed with data', () => {
-    const data = { gimme: ' some data' };
+    const data = { gimme: 'some data' };
     const err = new InvalidPaymentMethodError(data);
 
     expect(err).toMatchObject({

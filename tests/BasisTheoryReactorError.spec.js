@@ -2,7 +2,7 @@ const BasisTheoryReactorError = require('../src/errors/BasisTheoryReactorError')
 
 describe('BasisTheoryReactorError', () => {
   describe('constructor', () => {
-    it('throws when be constructed with no args', () => {
+    it('throws when constructed with no args', () => {
       expect(() => new BasisTheoryReactorError()).toThrow();
     });
 
@@ -24,7 +24,7 @@ describe('BasisTheoryReactorError', () => {
       });
     });
 
-    it('can be constructed with status', () => {
+    it('can be constructed with data', () => {
       const data = { arbitrary: 'data', more: 'data' };
       const err = new BasisTheoryReactorError({ data });
 

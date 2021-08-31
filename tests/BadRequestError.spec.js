@@ -11,7 +11,7 @@ describe('BadRequestError', () => {
   });
 
   it('can be constructed with data', () => {
-    const data = { gimme: ' some data' };
+    const data = { gimme: 'some data' };
     const err = new BadRequestError(data);
 
     expect(err).toMatchObject({

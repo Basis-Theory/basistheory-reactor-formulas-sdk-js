@@ -11,7 +11,7 @@ describe('AuthenticationError', () => {
   });
 
   it('can be constructed with data', () => {
-    const data = { gimme: ' some data' };
+    const data = { gimme: 'some data' };
     const err = new AuthenticationError(data);
 
     expect(err).toMatchObject({
