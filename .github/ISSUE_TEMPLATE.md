@@ -13,4 +13,4 @@ For additional support or to discuss issues/features, please reach out to us on 
 
 ## Specifications
   - SDK Version:
-  - .NET Version:
+  - NodeJS Version:
