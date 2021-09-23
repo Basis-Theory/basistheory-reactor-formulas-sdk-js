@@ -3,7 +3,7 @@ const BasisTheoryReactorError = require('../src/errors/BasisTheoryReactorError')
 describe('BasisTheoryReactorError', () => {
   describe('constructor', () => {
     test('throws when constructed with no args', () => {
-      expect(() => new BasisTheoryReactorError()).toThrow();
+      expect(() => new BasisTheoryReactorError()).toThrow(undefined);
     });
 
     test('can be constructed with message', () => {
