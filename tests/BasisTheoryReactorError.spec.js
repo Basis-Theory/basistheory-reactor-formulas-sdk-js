@@ -2,11 +2,11 @@ const BasisTheoryReactorError = require('../src/errors/BasisTheoryReactorError')
 
 describe('BasisTheoryReactorError', () => {
   describe('constructor', () => {
-    it('throws when constructed with no args', () => {
+    test('throws when constructed with no args', () => {
       expect(() => new BasisTheoryReactorError()).toThrow();
     });
 
-    it('can be constructed with message', () => {
+    test('can be constructed with message', () => {
       const message = 'Custom Message';
       const err = new BasisTheoryReactorError({ message });
 
@@ -15,7 +15,7 @@ describe('BasisTheoryReactorError', () => {
       });
     });
 
-    it('can be constructed with status', () => {
+    test('can be constructed with status', () => {
       const status = 418;
       const err = new BasisTheoryReactorError({ status });
 
@@ -24,8 +24,11 @@ describe('BasisTheoryReactorError', () => {
       });
     });
 
-    it('can be constructed with data', () => {
-      const data = { arbitrary: 'data', more: 'data' };
+    test('can be constructed with data', () => {
+      const data = {
+        arbitrary: 'data',
+        more: 'data',
+      };
       const err = new BasisTheoryReactorError({ data });
 
       expect(err).toMatchObject({
@@ -33,7 +36,7 @@ describe('BasisTheoryReactorError', () => {
       });
     });
 
-    it('sanitizes validationErrors', () => {
+    test('sanitizes validationErrors', () => {
       const validationErrors = {
         property1: ['error 1', 'error 2'],
         property2: ['error 3'],
@@ -52,7 +55,7 @@ describe('BasisTheoryReactorError', () => {
       });
     });
 
-    it('allows validationErrors to be constructed from a single invalid property name', () => {
+    test('allows validationErrors to be constructed from a single invalid property name', () => {
       const validationErrors = 'invalidPropertyName';
       const err = new BasisTheoryReactorError({ validationErrors });
 
@@ -63,10 +66,11 @@ describe('BasisTheoryReactorError', () => {
       });
     });
 
-    it('invalid input types are not translated into a validation error', () => {
+    test('invalid input types are not translated into a validation error', () => {
       const errWithNumber = new BasisTheoryReactorError({
         validationErrors: 5,
       });
+
       expect(errWithNumber).toMatchObject({
         validationErrors: {},
       });
@@ -74,6 +78,7 @@ describe('BasisTheoryReactorError', () => {
       const errWithArray = new BasisTheoryReactorError({
         validationErrors: ['prop1', 'prop2'],
       });
+
       expect(errWithArray).toMatchObject({
         validationErrors: {},
       });
@@ -81,7 +86,7 @@ describe('BasisTheoryReactorError', () => {
   });
 
   describe('toRFC7807', () => {
-    it('transforms error into a valid RFC7807 error object', () => {
+    test('transforms error into a valid RFC7807 error object', () => {
       const err = new BasisTheoryReactorError({
         message: 'This is an error',
         status: 400,
@@ -102,6 +107,7 @@ describe('BasisTheoryReactorError', () => {
       const errWithArray = new BasisTheoryReactorError({
         validationErrors: ['prop1', 'prop2'],
       });
+
       expect(errWithArray).toMatchObject({
         validationErrors: {},
       });

@@ -7,6 +7,7 @@ class AuthenticationError extends BasisTheoryReactorError {
       status: 401,
       data,
     });
+    this.name = 'AuthenticationError';
   }
 }
 

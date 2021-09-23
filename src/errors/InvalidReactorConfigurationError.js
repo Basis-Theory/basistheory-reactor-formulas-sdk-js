@@ -7,6 +7,7 @@ class InvalidReactorConfigurationError extends BasisTheoryReactorError {
       status: 400,
       validationErrors,
     });
+    this.name = 'InvalidReactorConfigurationError';
   }
 }
 

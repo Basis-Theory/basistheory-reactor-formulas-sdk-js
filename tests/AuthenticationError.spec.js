@@ -1,7 +1,7 @@
 const { AuthenticationError } = require('../src');
 
 describe('AuthenticationError', () => {
-  it('can be constructed with no args', () => {
+  test('can be constructed with no args', () => {
     const err = new AuthenticationError();
 
     expect(err).toMatchObject({
@@ -10,7 +10,7 @@ describe('AuthenticationError', () => {
     });
   });
 
-  it('can be constructed with data', () => {
+  test('can be constructed with data', () => {
     const data = { gimme: 'some data' };
     const err = new AuthenticationError(data);
 

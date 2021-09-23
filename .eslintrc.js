@@ -5,12 +5,11 @@ module.exports = {
     node: true,
     'jest/globals': true,
   },
-  extends: ['standard', 'prettier'],
+  extends: '@basis-theory',
   parserOptions: {
     ecmaVersion: 12,
   },
   rules: {
     'prettier/prettier': ['error'],
   },
-  plugins: ['prettier', 'jest'],
 };

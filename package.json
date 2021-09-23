@@ -14,10 +14,12 @@
   ],
   "scripts": {
     "lint": "eslint . --quiet --ignore-path .gitignore",
+    "lint:fix": "eslint . --quiet --fix --ignore-path .gitignore",
     "release": "semantic-release",
     "test": "jest --coverage --passWithNoTests"
   },
   "devDependencies": {
+    "@basis-theory/eslint-config": "^1.0.5",
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
     "@semantic-release/changelog": "^5.0.1",
@@ -27,18 +29,15 @@
     "@semantic-release/npm": "^7.0.10",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jest": "^24.4.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-promise": "^5.1.0",
     "husky": "^5.1.1",
     "jest": "^27.1.0",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.0",
     "semantic-release": "^17.3.9"
+  },
+  "resolutions": {
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-react": "7.25.1"
   },
   "engines": {
     "node": ">=14"
