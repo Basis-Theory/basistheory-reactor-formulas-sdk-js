@@ -18,4 +18,22 @@ describe('ReactorRuntimeError', () => {
       data,
     });
   });
+
+  it('can set the status to an int', () => {
+    const data = { status: 400 };
+    const err = new ReactorRuntimeError(data);
+
+    expect(err).toMatchObject({
+      status: data.status,
+    });
+  });
+
+  it('can not set the status to a string', () => {
+    const data = { status: 'foobar' };
+    const err = new ReactorRuntimeError(data);
+
+    expect(err).toMatchObject({
+      status: 500,
+    });
+  });
 });
