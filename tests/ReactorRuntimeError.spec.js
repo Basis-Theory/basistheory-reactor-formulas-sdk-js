@@ -20,7 +20,7 @@ describe('ReactorRuntimeError', () => {
   });
 
   it('can set the status to an int', () => {
-    const data = { status: 400 };
+    const data = { status: 400 }; // TODO use chance to randomly generate status code
     const err = new ReactorRuntimeError(data);
 
     expect(err).toMatchObject({
@@ -29,7 +29,7 @@ describe('ReactorRuntimeError', () => {
   });
 
   it('can not set the status to a string', () => {
-    const data = { status: 'foobar' };
+    const data = { status: 'foobar' }; // TODO use chance to randomly generate string
     const err = new ReactorRuntimeError(data);
 
     expect(err).toMatchObject({
