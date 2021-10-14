@@ -1,7 +1,7 @@
 const { InvalidReactorConfigurationError } = require('../src');
 
 describe('InvalidReactorConfigurationError', () => {
-  it('can be constructed with no args', () => {
+  test('can be constructed with no args', () => {
     const err = new InvalidReactorConfigurationError();
 
     expect(err).toMatchObject({
@@ -11,7 +11,7 @@ describe('InvalidReactorConfigurationError', () => {
     });
   });
 
-  it('can be constructed with invalid properties containing a single validation error', () => {
+  test('can be constructed with invalid properties containing a single validation error', () => {
     const err = new InvalidReactorConfigurationError({
       property1: 'error 1',
       property2: 'error 2',
@@ -25,7 +25,7 @@ describe('InvalidReactorConfigurationError', () => {
     });
   });
 
-  it('sanitizes validationErrors', () => {
+  test('sanitizes validationErrors', () => {
     const validationErrors = {
       property1: ['error 1', 'error 2'],
       property2: ['error 3'],
@@ -44,7 +44,7 @@ describe('InvalidReactorConfigurationError', () => {
     });
   });
 
-  it('allows validationErrors to be constructed from a single invalid property name', () => {
+  test('allows validationErrors to be constructed from a single invalid property name', () => {
     const validationErrors = 'invalidPropertyName';
     const err = new InvalidReactorConfigurationError(validationErrors);
 
@@ -55,8 +55,9 @@ describe('InvalidReactorConfigurationError', () => {
     });
   });
 
-  it('invalid input types are not translated into a validation error', () => {
+  test('invalid input types are not translated into a validation error', () => {
     const errWithNumber = new InvalidReactorConfigurationError(5);
+
     expect(errWithNumber).toMatchObject({
       validationErrors: {},
     });
@@ -65,6 +66,7 @@ describe('InvalidReactorConfigurationError', () => {
       'prop1',
       'prop2',
     ]);
+
     expect(errWithArray).toMatchObject({
       validationErrors: {},
     });
