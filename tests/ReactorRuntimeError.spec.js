@@ -10,12 +10,15 @@ describe('ReactorRuntimeError', () => {
     });
   });
 
-  test('can be constructed with data', () => {
-    const data = { gimme: 'some data' };
-    const err = new ReactorRuntimeError(data);
+  test('can be constructed with errors', () => {
+    const err = new ReactorRuntimeError('generic error');
 
     expect(err).toMatchObject({
-      data,
+      status: 500,
+      message: 'Reactor Runtime Error',
+      errors: {
+        error: ['generic error'],
+      },
     });
   });
 });

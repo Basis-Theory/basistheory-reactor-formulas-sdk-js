@@ -1,11 +1,11 @@
 const BasisTheoryReactorError = require('./BasisTheoryReactorError');
 
 class ReactorRuntimeError extends BasisTheoryReactorError {
-  constructor(error) {
+  constructor(errors) {
     super({
       message: 'Reactor Runtime Error',
       status: 500,
-      data: error,
+      errors,
     });
     this.name = 'ReactorRuntimeError';
   }

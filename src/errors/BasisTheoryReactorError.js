@@ -1,34 +1,42 @@
 const sanitizeErrors = (errors) => {
   const sanitizedErrors = {};
 
-  if (typeof errors === 'object') {
-    // eslint-disable-next-line guard-for-in
+  if (Array.isArray(errors)) {
+    sanitizedErrors['error'] = errors;
+  } else if (typeof errors === 'object') {
     for (const property in errors) {
-      sanitizedErrors[property] = Array.isArray(errors[property])
-        ? errors[property].map((e) => e.toString())
-        : [errors[property].toString()];
+      if (Array.isArray(errors[property])) {
+        sanitizedErrors[property] = errors[property].map((e) =>
+          e === 'object' ? JSON.stringify(e) : e.toString()
+        );
+      } else if (typeof errors[property] === 'object') {
+        sanitizedErrors[property] = [JSON.stringify(errors[property])];
+      } else {
+        sanitizedErrors[property] = [errors[property].toString()];
+      }
     }
   } else if (typeof errors === 'string') {
-    sanitizedErrors[errors] = [`${errors} is invalid`];
+    sanitizedErrors['error'] = [errors];
+  } else if (errors) {
+    sanitizedErrors['error'] = [errors.toString()];
   }
 
   return sanitizedErrors;
 };
 
 class BasisTheoryReactorError extends Error {
-  constructor({ message, status, data, validationErrors }) {
+  constructor({ message, status, errors }) {
     super(message);
     this.name = 'BasisTheoryReactorError';
     this.status = status;
-    this.data = data;
-    this.validationErrors = sanitizeErrors(validationErrors);
+    this.errors = sanitizeErrors(errors);
   }
 
   toRFC7807() {
     return {
       detail: this.message,
       status: this.status,
-      errors: this.validationErrors,
+      errors: this.errors,
     };
   }
 }

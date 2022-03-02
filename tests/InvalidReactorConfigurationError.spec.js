@@ -7,7 +7,7 @@ describe('InvalidReactorConfigurationError', () => {
     expect(err).toMatchObject({
       message: 'Invalid Reactor Configuration',
       status: 400,
-      validationErrors: {},
+      errors: {},
     });
   });
 
@@ -18,57 +18,63 @@ describe('InvalidReactorConfigurationError', () => {
     });
 
     expect(err).toMatchObject({
-      validationErrors: {
+      errors: {
         property1: ['error 1'],
         property2: ['error 2'],
       },
     });
   });
 
-  test('sanitizes validationErrors', () => {
-    const validationErrors = {
+  test('sanitizes errors', () => {
+    const errors = {
       property1: ['error 1', 'error 2'],
       property2: ['error 3'],
       property3: 'error 4',
       complexProperty: { innerProperty: 'innerValue' },
     };
-    const err = new InvalidReactorConfigurationError(validationErrors);
+    const err = new InvalidReactorConfigurationError(errors);
 
     expect(err).toMatchObject({
-      validationErrors: {
+      errors: {
         property1: ['error 1', 'error 2'],
         property2: ['error 3'],
         property3: ['error 4'],
-        complexProperty: ['[object Object]'],
+        complexProperty: ['{"innerProperty":"innerValue"}'],
       },
     });
   });
 
-  test('allows validationErrors to be constructed from a single invalid property name', () => {
-    const validationErrors = 'invalidPropertyName';
-    const err = new InvalidReactorConfigurationError(validationErrors);
+  test('allows errors to be constructed from a string error', () => {
+    const errors = 'generic error';
+    const err = new InvalidReactorConfigurationError(errors);
 
     expect(err).toMatchObject({
-      validationErrors: {
-        invalidPropertyName: ['invalidPropertyName is invalid'],
+      errors: {
+        error: ['generic error'],
       },
     });
   });
 
-  test('invalid input types are not translated into a validation error', () => {
-    const errWithNumber = new InvalidReactorConfigurationError(5);
+  test('allows errors to be constructed from a non-string error', () => {
+    const err = new InvalidReactorConfigurationError(5);
 
-    expect(errWithNumber).toMatchObject({
-      validationErrors: {},
+    expect(err).toMatchObject({
+      errors: {
+        error: ['5'],
+      },
     });
+  });
 
+  test('allows errors to be constructed from an array', () => {
     const errWithArray = new InvalidReactorConfigurationError([
       'prop1',
       'prop2',
     ]);
 
     expect(errWithArray).toMatchObject({
-      validationErrors: {},
+      errors: {
+        error: ['prop1', 'prop2'],
+      },
     });
   });
 });

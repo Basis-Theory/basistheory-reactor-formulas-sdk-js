@@ -10,12 +10,15 @@ describe('AuthenticationError', () => {
     });
   });
 
-  test('can be constructed with data', () => {
-    const data = { gimme: 'some data' };
-    const err = new AuthenticationError(data);
+  test('can be constructed with errors', () => {
+    const err = new AuthenticationError('generic error');
 
     expect(err).toMatchObject({
-      data,
+      status: 401,
+      message: 'Authentication Failed',
+      errors: {
+        error: ['generic error'],
+      },
     });
   });
 });

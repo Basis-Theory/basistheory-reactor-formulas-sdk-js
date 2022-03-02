@@ -10,12 +10,15 @@ describe('RateLimitError', () => {
     });
   });
 
-  test('can be constructed with data', () => {
-    const data = { gimme: 'some data' };
-    const err = new RateLimitError(data);
+  test('can be constructed with errors', () => {
+    const err = new RateLimitError('generic error');
 
     expect(err).toMatchObject({
-      data,
+      status: 429,
+      message: 'Rate Limit Exceeded',
+      errors: {
+        error: ['generic error'],
+      },
     });
   });
 });
