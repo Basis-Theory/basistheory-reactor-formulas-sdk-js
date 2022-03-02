@@ -4,11 +4,11 @@ const sanitizeErrors = (errors) => {
   if (Array.isArray(errors)) {
     sanitizedErrors['error'] = errors;
   } else if (typeof errors === 'object') {
-    // eslint-disable-next-line guard-for-in
     for (const property in errors) {
       if (Array.isArray(errors[property])) {
-        sanitizedErrors[property] = errors[property].map(
-          (e) => e === 'object' ? JSON.stringify(e) : e.toString());
+        sanitizedErrors[property] = errors[property].map((e) =>
+          e === 'object' ? JSON.stringify(e) : e.toString()
+        );
       } else if (typeof errors[property] === 'object') {
         sanitizedErrors[property] = [JSON.stringify(errors[property])];
       } else {
