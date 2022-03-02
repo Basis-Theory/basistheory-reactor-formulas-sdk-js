@@ -10,12 +10,15 @@ describe('BadRequestError', () => {
     });
   });
 
-  test('can be constructed with data', () => {
-    const data = { gimme: 'some data' };
-    const err = new BadRequestError(data);
+  test('can be constructed with errors', () => {
+    const err = new BadRequestError('generic error');
 
     expect(err).toMatchObject({
-      data,
+      status: 400,
+      message: 'Bad Request',
+      errors: {
+        error: ['generic error'],
+      },
     });
   });
 });

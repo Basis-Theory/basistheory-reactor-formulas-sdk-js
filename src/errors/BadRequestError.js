@@ -1,11 +1,11 @@
 const BasisTheoryReactorError = require('./BasisTheoryReactorError');
 
 class BadRequestError extends BasisTheoryReactorError {
-  constructor(data) {
+  constructor(errors) {
     super({
       message: 'Bad Request',
       status: 400,
-      data,
+      errors,
     });
     this.name = 'BadRequestError';
   }

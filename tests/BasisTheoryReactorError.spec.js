@@ -24,63 +24,57 @@ describe('BasisTheoryReactorError', () => {
       });
     });
 
-    test('can be constructed with data', () => {
-      const data = {
-        arbitrary: 'data',
-        more: 'data',
-      };
-      const err = new BasisTheoryReactorError({ data });
-
-      expect(err).toMatchObject({
-        data,
-      });
-    });
-
-    test('sanitizes validationErrors', () => {
-      const validationErrors = {
+    test('sanitizes errors', () => {
+      const errors = {
         property1: ['error 1', 'error 2'],
         property2: ['error 3'],
         property3: 'error 4',
         complexProperty: { innerProperty: 'innerValue' },
       };
-      const err = new BasisTheoryReactorError({ validationErrors });
+      const err = new BasisTheoryReactorError({ errors });
 
       expect(err).toMatchObject({
-        validationErrors: {
+        errors: {
           property1: ['error 1', 'error 2'],
           property2: ['error 3'],
           property3: ['error 4'],
-          complexProperty: ['[object Object]'],
+          complexProperty: ['{"innerProperty":"innerValue"}'],
         },
       });
     });
 
-    test('allows validationErrors to be constructed from a single invalid property name', () => {
-      const validationErrors = 'invalidPropertyName';
-      const err = new BasisTheoryReactorError({ validationErrors });
+    test('allows validationErrors to be constructed from a string error', () => {
+      const errors = 'generic error';
+      const err = new BasisTheoryReactorError({ errors });
 
       expect(err).toMatchObject({
-        validationErrors: {
-          invalidPropertyName: ['invalidPropertyName is invalid'],
+        errors: {
+          error: ['generic error'],
         },
       });
     });
 
-    test('invalid input types are not translated into a validation error', () => {
+    test('allows errors to be constructed from a non-string error', () => {
       const errWithNumber = new BasisTheoryReactorError({
-        validationErrors: 5,
+        errors: 5,
       });
 
       expect(errWithNumber).toMatchObject({
-        validationErrors: {},
+        errors: {
+          error: ['5'],
+        },
       });
+    });
 
+    test('allows errors to be constructed from an array', () => {
       const errWithArray = new BasisTheoryReactorError({
-        validationErrors: ['prop1', 'prop2'],
+        errors: ['prop1', 'prop2'],
       });
 
       expect(errWithArray).toMatchObject({
-        validationErrors: {},
+        errors: {
+          error: ['prop1', 'prop2'],
+        },
       });
     });
   });
@@ -90,8 +84,7 @@ describe('BasisTheoryReactorError', () => {
       const err = new BasisTheoryReactorError({
         message: 'This is an error',
         status: 400,
-        data: { arbitrary: 'data' },
-        validationErrors: {
+        errors: {
           property1: ['error 1', 'error 2'],
         },
       });
@@ -105,11 +98,13 @@ describe('BasisTheoryReactorError', () => {
       });
 
       const errWithArray = new BasisTheoryReactorError({
-        validationErrors: ['prop1', 'prop2'],
+        errors: ['prop1', 'prop2'],
       });
 
       expect(errWithArray).toMatchObject({
-        validationErrors: {},
+        errors: {
+          error: ['prop1', 'prop2'],
+        },
       });
     });
   });

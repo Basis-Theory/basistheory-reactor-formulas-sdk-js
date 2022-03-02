@@ -10,12 +10,15 @@ describe('InvalidPaymentMethodError', () => {
     });
   });
 
-  test('can be constructed with data', () => {
-    const data = { gimme: 'some data' };
-    const err = new InvalidPaymentMethodError(data);
+  test('can be constructed with errors', () => {
+    const err = new InvalidPaymentMethodError('generic error');
 
     expect(err).toMatchObject({
-      data,
+      status: 402,
+      message: 'Invalid Payment Method',
+      errors: {
+        error: ['generic error'],
+      },
     });
   });
 });

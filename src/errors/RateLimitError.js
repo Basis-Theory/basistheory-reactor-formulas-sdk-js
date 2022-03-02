@@ -1,11 +1,11 @@
 const BasisTheoryReactorError = require('./BasisTheoryReactorError');
 
 class RateLimitError extends BasisTheoryReactorError {
-  constructor(data) {
+  constructor(errors) {
     super({
       message: 'Rate Limit Exceeded',
       status: 429,
-      data,
+      errors,
     });
     this.name = 'RateLimitError';
   }

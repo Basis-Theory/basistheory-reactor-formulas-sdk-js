@@ -1,11 +1,11 @@
 const BasisTheoryReactorError = require('./BasisTheoryReactorError');
 
 class AuthenticationError extends BasisTheoryReactorError {
-  constructor(data) {
+  constructor(errors) {
     super({
       message: 'Authentication Failed',
       status: 401,
-      data,
+      errors,
     });
     this.name = 'AuthenticationError';
   }

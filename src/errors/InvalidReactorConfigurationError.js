@@ -1,11 +1,11 @@
 const BasisTheoryReactorError = require('./BasisTheoryReactorError');
 
 class InvalidReactorConfigurationError extends BasisTheoryReactorError {
-  constructor(validationErrors) {
+  constructor(errors) {
     super({
       message: 'Invalid Reactor Configuration',
       status: 400,
-      validationErrors,
+      errors,
     });
     this.name = 'InvalidReactorConfigurationError';
   }
