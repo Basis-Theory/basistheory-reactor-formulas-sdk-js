@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.1.1...v1.2.0) (2022-03-02)
+
+
+### Features
+
+* bubble up errors from reactors and add additional error input sanitization ([92a2492](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/92a2492a1a69ae229af7f6b31b413108e27cf0b7))
+
 ## [1.1.1](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.1.0...v1.1.1) (2021-08-31)
 
 
