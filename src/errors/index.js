@@ -1,4 +1,5 @@
 const AuthenticationError = require('./AuthenticationError');
+const AuthorizationError = require('./AuthorizationError');
 const BadRequestError = require('./BadRequestError');
 const InvalidPaymentMethodError = require('./InvalidPaymentMethodError');
 const InvalidReactorConfigurationError = require('./InvalidReactorConfigurationError');
@@ -7,6 +8,7 @@ const ReactorRuntimeError = require('./ReactorRuntimeError');
 
 module.exports = {
   AuthenticationError,
+  AuthorizationError,
   BadRequestError,
   InvalidPaymentMethodError,
   InvalidReactorConfigurationError,
