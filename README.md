@@ -1,7 +1,7 @@
 # basistheory-reactor-formulas-sdk-js
 
 [![Version](https://img.shields.io/npm/v/@basis-theory/basis-theory-reactor-formulas-sdk-js.svg)](https://www.npmjs.org/package/@basis-theory/basis-theory-reactor-formulas-sdk-js)
-[![Verify](https://github.com/Basis-Theory/basis-theory-reactor-formulas-sdk-js/actions/workflows/release.yml/badge.svg)](https://github.com/Basis-Theory/basis-theory-reactor-formulas-sdk-js/actions/workflows/release.yml)
+[![Verify](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/actions/workflows/release.yml/badge.svg)](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/actions/workflows/release.yml)
 
 Javascript SDK for building Basis Theory reactor formulas
 
