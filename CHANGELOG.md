@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.2.0...v1.3.0) (2022-04-05)
+
+
+### Features
+
+* add authorization error ([#20](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/20)) ([bb1e295](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/bb1e295b9d031da560d51d8c8004c96045d1ab1f))
+
 # [1.2.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.1.1...v1.2.0) (2022-03-02)
 
 
