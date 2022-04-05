@@ -1,6 +1,6 @@
 const { AuthorizationError } = require('../src');
 
-describe('AuthenticationError', () => {
+describe('AuthorizationError', () => {
   test('can be constructed with no args', () => {
     const err = new AuthorizationError();
 
