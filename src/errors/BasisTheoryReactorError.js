@@ -2,7 +2,7 @@ const sanitizeErrors = (errors) => {
   const sanitizedErrors = {};
 
   const fallbackErrorMessage =
-    'Something went wrong. Please try again. If the problem persists, please contact support@basistheory.com';
+    'Something went wrong. Please try again. If the problem persists, please contact support@basistheory.com.';
 
   if (Array.isArray(errors)) {
     sanitizedErrors['error'] = errors;
