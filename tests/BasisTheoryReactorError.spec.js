@@ -77,6 +77,42 @@ describe('BasisTheoryReactorError', () => {
         },
       });
     });
+
+    const fallbackMessage =
+      'Something went wrong. Please try again. If the problem persists, please contact support@basistheory.com.';
+
+    test('allows undefined errors', () => {
+      const undefinedErrors = new BasisTheoryReactorError({
+        errors: undefined,
+      });
+
+      expect(undefinedErrors).toMatchObject({
+        errors: {
+          error: [fallbackMessage],
+        },
+      });
+    });
+
+    test('allows nested undefined errors', () => {
+      const undefinedErrors = new BasisTheoryReactorError({
+        errors: {
+          error1: undefined,
+          error2: [undefined],
+          error3: {
+            nested: undefined,
+            nestedArr: [undefined],
+          },
+        },
+      });
+
+      expect(undefinedErrors).toMatchObject({
+        errors: {
+          error1: [fallbackMessage],
+          error2: [fallbackMessage],
+          error3: ['{"nestedArr":[null]}'],
+        },
+      });
+    });
   });
 
   describe('toRFC7807', () => {
