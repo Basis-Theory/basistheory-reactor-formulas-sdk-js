@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.3.0...v1.3.1) (2022-06-01)
+
+
+### Bug Fixes
+
+* fallback to generic error message when error is not parseable or undefined ([#23](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/23)) ([47af6ce](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/47af6ceffa513de1c10a6c4c8b7c5903c400f3a7))
+
 # [1.3.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.2.0...v1.3.0) (2022-04-05)
 
 
