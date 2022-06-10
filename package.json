@@ -34,7 +34,7 @@
     "jest": "^27.1.0",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.0",
-    "semantic-release": "^17.3.9"
+    "semantic-release": "^19.0.3"
   },
   "resolutions": {
     "eslint-plugin-import": "2.24.2",
