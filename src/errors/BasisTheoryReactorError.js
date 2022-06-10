@@ -6,6 +6,15 @@ const sanitizeErrors = (errors) => {
 
   if (Array.isArray(errors)) {
     sanitizedErrors['error'] = errors;
+  } else if (errors instanceof Error) {
+    if (errors.message) {
+      sanitizedErrors['error'] = [errors.message];
+    } else if (errors.name !== 'Error') {
+      // "Error" is not helpful as a message
+      sanitizedErrors['error'] = [errors.name];
+    } else {
+      sanitizedErrors['error'] = [fallbackErrorMessage];
+    }
   } else if (typeof errors === 'object') {
     for (const property in errors) {
       if (Array.isArray(errors[property])) {

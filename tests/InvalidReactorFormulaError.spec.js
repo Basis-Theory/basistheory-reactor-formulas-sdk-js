@@ -5,8 +5,13 @@ describe('InvalidReactorFormulaError', () => {
     const err = new InvalidReactorFormulaError();
 
     expect(err).toMatchObject({
+      errors: {
+        error: [
+          'Something went wrong. Please try again. If the problem persists, please contact support@basistheory.com.',
+        ],
+      },
+      name: 'InvalidReactorFormulaError',
       status: 422,
-      message: '',
     });
   });
 
@@ -15,7 +20,11 @@ describe('InvalidReactorFormulaError', () => {
     const err = new InvalidReactorFormulaError(message);
 
     expect(err).toMatchObject({
-      message,
+      errors: {
+        error: [message],
+      },
+      name: 'InvalidReactorFormulaError',
+      status: 422,
     });
   });
 });

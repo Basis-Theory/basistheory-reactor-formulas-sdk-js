@@ -1,10 +1,11 @@
 const BasisTheoryReactorError = require('./BasisTheoryReactorError');
 
 class InvalidReactorFormulaError extends BasisTheoryReactorError {
-  constructor(message) {
+  constructor(errors) {
     super({
-      message,
+      message: 'Invalid Reactor Formula',
       status: 422,
+      errors,
     });
     this.name = 'InvalidReactorFormulaError';
   }
