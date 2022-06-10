@@ -9,7 +9,8 @@ const sanitizeErrors = (errors) => {
   } else if (errors instanceof Error) {
     if (errors.message) {
       sanitizedErrors['error'] = [errors.message];
-    } else if (errors.name !== 'Error') { // "Error" is not helpful as a message
+    } else if (errors.name !== 'Error') {
+      // "Error" is not helpful as a message
       sanitizedErrors['error'] = [errors.name];
     } else {
       sanitizedErrors['error'] = [fallbackErrorMessage];
