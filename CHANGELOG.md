@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.3.1...v1.3.2) (2022-06-10)
+
+
+### Bug Fixes
+
+* parse Error message into details ([#26](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/26)) ([d6a834a](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/d6a834a24321f662f53fdfb48a996a94f4ab5bf2))
+
 ## [1.3.1](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.3.0...v1.3.1) (2022-06-01)
 
 
