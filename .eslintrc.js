@@ -26,7 +26,6 @@ module.exports = {
       },
     ],
     'unicorn/string-content': 'off', // get-off-my-lawn suggests https usage with bugged auto-fix
-    'unicorn/custom-error-definition': 'off',
   },
   settings: {
     'import/resolver': {

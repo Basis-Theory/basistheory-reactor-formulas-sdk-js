@@ -1,7 +1,7 @@
-class CustomHttpResponse extends Error {
+class CustomHttpResponseError extends Error {
   constructor({ status, headers, body }) {
     super();
-    this.name = 'CustomHttpResponse';
+    this.name = 'CustomHttpResponseError';
 
     const parsedStatus = Number.parseInt(status);
 
@@ -22,4 +22,4 @@ class CustomHttpResponse extends Error {
   }
 }
 
-module.exports = CustomHttpResponse;
+module.exports = CustomHttpResponseError;

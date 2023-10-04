@@ -1,7 +1,7 @@
 const AuthenticationError = require('./AuthenticationError');
 const AuthorizationError = require('./AuthorizationError');
 const BadRequestError = require('./BadRequestError');
-const CustomHttpResponse = require('./CustomHttpResponse');
+const CustomHttpResponseError = require('./CustomHttpResponseError');
 const InvalidPaymentMethodError = require('./InvalidPaymentMethodError');
 const InvalidReactorConfigurationError = require('./InvalidReactorConfigurationError');
 const RateLimitError = require('./RateLimitError');
@@ -11,7 +11,7 @@ module.exports = {
   AuthenticationError,
   AuthorizationError,
   BadRequestError,
-  CustomHttpResponse,
+  CustomHttpResponseError,
   InvalidPaymentMethodError,
   InvalidReactorConfigurationError,
   RateLimitError,
