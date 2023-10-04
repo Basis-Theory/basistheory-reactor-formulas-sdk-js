@@ -1,4 +1,3 @@
-// eslint-disable-next-line unicorn/custom-error-definition
 class CustomHttpResponse extends Error {
   constructor({ status, headers, body }) {
     super();
