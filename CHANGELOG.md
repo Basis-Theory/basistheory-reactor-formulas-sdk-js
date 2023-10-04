@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.3.2...v1.4.0) (2023-10-04)
+
+
+### Features
+
+* Adds CustomHttpResponseError class ([#53](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/53)) ([637a50d](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/637a50d105aa076eea54381c399f662b970cf1d2))
+
 ## [1.3.2](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.3.1...v1.3.2) (2022-06-10)
 
 
