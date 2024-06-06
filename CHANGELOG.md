@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.4.0...v1.5.0) (2024-06-06)
+
+
+### Features
+
+* add service unavailable error ([#63](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/63)) ([1ac98c8](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/1ac98c842e59d38dd5fd6e41dcc7b33fb4e86c39))
+
 # [1.4.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.3.2...v1.4.0) (2023-10-04)
 
 
