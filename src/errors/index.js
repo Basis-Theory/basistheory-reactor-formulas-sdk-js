@@ -6,6 +6,7 @@ const InvalidPaymentMethodError = require('./InvalidPaymentMethodError');
 const InvalidReactorConfigurationError = require('./InvalidReactorConfigurationError');
 const RateLimitError = require('./RateLimitError');
 const ReactorRuntimeError = require('./ReactorRuntimeError');
+const ServiceUnavailableError = require('./ServiceUnavailableError');
 
 module.exports = {
   AuthenticationError,
@@ -16,4 +17,5 @@ module.exports = {
   InvalidReactorConfigurationError,
   RateLimitError,
   ReactorRuntimeError,
+  ServiceUnavailableError,
 };
