@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.5.0...v1.5.1) (2024-06-24)
+
+
+### Bug Fixes
+
+* export BasisTheoryReactorError ([#64](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/64)) ([3bcb109](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/3bcb109dcf515f23388fba0a5b29a06d49c0756e))
+
 # [1.5.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.4.0...v1.5.0) (2024-06-06)
 
 
