@@ -1,3 +1,4 @@
+const BasisTheoryReactorError = require('./BasisTheoryReactorError');
 const AuthenticationError = require('./AuthenticationError');
 const AuthorizationError = require('./AuthorizationError');
 const BadRequestError = require('./BadRequestError');
@@ -9,6 +10,7 @@ const ReactorRuntimeError = require('./ReactorRuntimeError');
 const ServiceUnavailableError = require('./ServiceUnavailableError');
 
 module.exports = {
+  BasisTheoryReactorError,
   AuthenticationError,
   AuthorizationError,
   BadRequestError,
