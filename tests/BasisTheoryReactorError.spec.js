@@ -38,7 +38,18 @@ describe('BasisTheoryReactorError', () => {
           property1: ['error 1', 'error 2'],
           property2: ['error 3'],
           property3: ['error 4'],
-          complexProperty: ['{"innerProperty":"innerValue"}'],
+          complexProperty: ['{"innerProperty":"innerValue"}']
+        },
+      });
+    });
+
+    test('sanitizes errors array', () => {
+      const errors = [{ foo: 'bar' }, 'error1', undefined];
+      const err = new BasisTheoryReactorError({ errors });
+
+      expect(err).toMatchObject({
+        errors: {
+          error: ['{"foo":"bar"}', "error1", "Something went wrong. Please try again. If the problem persists, please contact support@basistheory.com."],
         },
       });
     });

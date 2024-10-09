@@ -4,8 +4,16 @@ const sanitizeErrors = (errors) => {
   const fallbackErrorMessage =
     'Something went wrong. Please try again. If the problem persists, please contact support@basistheory.com.';
 
+  const mapSanitizedError = (error) => {
+    return error.map((e) =>
+      typeof e === 'object'
+        ? JSON.stringify(e)
+        : e?.toString() ?? fallbackErrorMessage
+    );
+  };
+
   if (Array.isArray(errors)) {
-    sanitizedErrors['error'] = errors;
+    sanitizedErrors['error'] = mapSanitizedError(errors);
   } else if (errors instanceof Error) {
     if (errors.message) {
       sanitizedErrors['error'] = [errors.message];
@@ -18,11 +26,7 @@ const sanitizeErrors = (errors) => {
   } else if (typeof errors === 'object') {
     for (const property in errors) {
       if (Array.isArray(errors[property])) {
-        sanitizedErrors[property] = errors[property].map((e) =>
-          typeof e === 'object'
-            ? JSON.stringify(e)
-            : e?.toString() ?? fallbackErrorMessage
-        );
+        sanitizedErrors[property] = mapSanitizedError(errors[property]);
       } else if (typeof errors[property] === 'object') {
         sanitizedErrors[property] = [JSON.stringify(errors[property])];
       } else if (errors[property]) {
