@@ -21,12 +21,12 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/commit-analyzer": "^8.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "@semantic-release/github": "^7.2.0",
-    "@semantic-release/npm": "^7.0.10",
-    "@semantic-release/release-notes-generator": "^9.0.1",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^11.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.2.1",
+    "@semantic-release/npm": "^11.0.0",
+    "@semantic-release/release-notes-generator": "^12.0.0",
     "chance": "^1.1.8",
     "eslint": "^7.32.0",
     "eslint-config-get-off-my-lawn": "^6.0.1",
@@ -37,7 +37,7 @@
     "jest": "^27.1.0",
     "prettier": "^2.3.2",
     "pretty-quick": "^3.1.0",
-    "semantic-release": "^17.3.9"
+    "semantic-release": "^22.0.5"
   },
   "resolutions": {
     "eslint-plugin-import": "2.24.2",
