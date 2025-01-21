@@ -22,41 +22,45 @@ const sanitizeErrors = (errors) => {
   const fallbackErrorMessage =
     'Something went wrong. Please try again. If the problem persists, please contact support@basistheory.com.';
 
-  const mapSanitizedError = (error) =>
-    error.map((e) =>
-      typeof e === 'object'
-        ? safeStringify(e)
-        : e?.toString() ?? fallbackErrorMessage
-    );
+  try {
+    const mapSanitizedError = (error) =>
+      error.map((e) =>
+        typeof e === 'object'
+          ? safeStringify(e)
+          : e?.toString() ?? fallbackErrorMessage
+      );
 
-  if (Array.isArray(errors)) {
-    sanitizedErrors['error'] = mapSanitizedError(errors);
-  } else if (errors instanceof Error) {
-    if (errors.message) {
-      sanitizedErrors['error'] = [errors.message];
-    } else if (errors.name !== 'Error') {
-      // "Error" is not helpful as a message
-      sanitizedErrors['error'] = [errors.name];
+    if (Array.isArray(errors)) {
+      sanitizedErrors['error'] = mapSanitizedError(errors);
+    } else if (errors instanceof Error) {
+      if (errors.message) {
+        sanitizedErrors['error'] = [errors.message];
+      } else if (errors.name !== 'Error') {
+        // "Error" is not helpful as a message
+        sanitizedErrors['error'] = [errors.name];
+      } else {
+        sanitizedErrors['error'] = [fallbackErrorMessage];
+      }
+    } else if (typeof errors === 'object') {
+      for (const property in errors) {
+        if (Array.isArray(errors[property])) {
+          sanitizedErrors[property] = mapSanitizedError(errors[property]);
+        } else if (typeof errors[property] === 'object') {
+          sanitizedErrors[property] = [safeStringify(errors[property])];
+        } else if (errors[property]) {
+          sanitizedErrors[property] = [errors[property].toString()];
+        } else {
+          sanitizedErrors[property] = [fallbackErrorMessage];
+        }
+      }
+    } else if (typeof errors === 'string') {
+      sanitizedErrors['error'] = [errors];
+    } else if (errors) {
+      sanitizedErrors['error'] = [errors.toString()];
     } else {
       sanitizedErrors['error'] = [fallbackErrorMessage];
     }
-  } else if (typeof errors === 'object') {
-    for (const property in errors) {
-      if (Array.isArray(errors[property])) {
-        sanitizedErrors[property] = mapSanitizedError(errors[property]);
-      } else if (typeof errors[property] === 'object') {
-        sanitizedErrors[property] = [safeStringify(errors[property])];
-      } else if (errors[property]) {
-        sanitizedErrors[property] = [errors[property].toString()];
-      } else {
-        sanitizedErrors[property] = [fallbackErrorMessage];
-      }
-    }
-  } else if (typeof errors === 'string') {
-    sanitizedErrors['error'] = [errors];
-  } else if (errors) {
-    sanitizedErrors['error'] = [errors.toString()];
-  } else {
+  } catch {
     sanitizedErrors['error'] = [fallbackErrorMessage];
   }
 
