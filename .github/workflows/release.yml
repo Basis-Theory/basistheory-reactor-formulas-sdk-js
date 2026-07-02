@@ -18,24 +18,31 @@ jobs:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
 
+      - name: Mint semantic-release app token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
+        with:
+          app-id: ${{ vars.SEMANTIC_RELEASE_APP_ID }}
+          private-key: ${{ secrets.SEMANTIC_RELEASE_APP_PRIVATE_KEY }}
+
       - name: Start Deploy Message
-        uses: Basis-Theory/public-github-actions/deploy-slack-action@master
+        uses: Basis-Theory/public-github-actions/deploy-slack-action@12362db6b1ad6b524d28c47a6489c3e73ecd656a # master
         with:
           slack-api-token: ${{ secrets.SLACK_DUCKBOT_API_KEY }}
           channel: ${{ vars.SLACK_DUCKBOT_RELEASE_CHANNEL_ID }}
 
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
         with:
-          token: ${{ secrets.GH_SEMANTIC_RELEASE_PAT }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # v1
         with:
           node-version: ${{ matrix.node }}
 
       - name: Install deps (with cache)
-        uses: bahmutov/npm-install@v1
+        uses: bahmutov/npm-install@20216767ca67f0f7b4d095dc5859c5700a6581cb # v1
         with:
           install-command: yarn --frozen-lockfile --no-progress --ignore-scripts
 
@@ -45,11 +52,11 @@ jobs:
       - name: Release
         run: make release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_SEMANTIC_RELEASE_PAT }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
       - name: Stop Deploy Message
         if: always()
-        uses: Basis-Theory/public-github-actions/deploy-slack-action@master
+        uses: Basis-Theory/public-github-actions/deploy-slack-action@12362db6b1ad6b524d28c47a6489c3e73ecd656a # master
         with:
           slack-api-token: ${{ secrets.SLACK_DUCKBOT_API_KEY }}
           channel: ${{ vars.SLACK_DUCKBOT_RELEASE_CHANNEL_ID }}
