@@ -24,7 +24,9 @@ jobs:
         with:
           app-id: ${{ vars.SEMANTIC_RELEASE_APP_ID }}
           private-key: ${{ secrets.SEMANTIC_RELEASE_APP_PRIVATE_KEY }}
-
+          permission-contents: write
+          permission-issues: write
+          permission-pull-requests: write
       - name: Start Deploy Message
         uses: Basis-Theory/public-github-actions/deploy-slack-action@12362db6b1ad6b524d28c47a6489c3e73ecd656a # master
         with:
@@ -35,7 +37,7 @@ jobs:
         uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
         with:
           token: ${{ steps.app-token.outputs.token }}
-
+          persist-credentials: false
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # v1
         with:
