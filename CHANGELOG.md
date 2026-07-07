@@ -1,3 +1,24 @@
+## [1.5.2](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.5.1...v1.5.2) (2025-01-21)
+
+
+### Bug Fixes
+
+* handle non-string error arrays, safe sanitize ([#65](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/65)) ([b47396f](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/b47396f06f9c5ebecf4f4f3693acbbbfdac7da94))
+
+## [1.5.1](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.5.0...v1.5.1) (2024-06-24)
+
+
+### Bug Fixes
+
+* export BasisTheoryReactorError ([#64](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/64)) ([3bcb109](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/3bcb109dcf515f23388fba0a5b29a06d49c0756e))
+
+# [1.5.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.4.0...v1.5.0) (2024-06-06)
+
+
+### Features
+
+* add service unavailable error ([#63](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/63)) ([1ac98c8](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/1ac98c842e59d38dd5fd6e41dcc7b33fb4e86c39))
+
 # [1.4.0](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.3.2...v1.4.0) (2023-10-04)
 
 

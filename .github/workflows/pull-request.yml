@@ -6,15 +6,16 @@ on:
 
 jobs:
   build:
+    environment: PR
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node: ['14.x']
+        node: ['20.x']
         os: [ubuntu-latest]
     env:
       CI: 1
       HUSKY: 0 # disables husky hooks
-      NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_RO_TOKEN }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -38,3 +39,8 @@ jobs:
 
       - name: Verify
         run: make verify
+
+  pr-security-check:
+    name: PR Security Check
+    uses: Basis-Theory/public-security-workflows/.github/workflows/pr-check.yml@master
+    secrets: inherit
