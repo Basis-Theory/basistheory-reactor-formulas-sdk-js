@@ -56,11 +56,23 @@ jobs:
         run: make verify
 
       - name: Release
-        run: make release
+        id: release
+        run: |
+          before="$(node -p "require('./package.json').version")"
+          make release
+          after="$(node -p "require('./package.json').version")"
+          if [ "$before" != "$after" ]; then
+            echo "published=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "published=false" >> "$GITHUB_OUTPUT"
+          fi
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
+      # Only publish when semantic-release actually cut a release (version bumped);
+      # never on chore/no-release pushes, so npm can't get an un-gated version.
       - name: Publish to npm (OIDC trusted publishing)
+        if: steps.release.outputs.published == 'true'
         run: npm publish --provenance --access public
 
       - name: Stop Deploy Message
