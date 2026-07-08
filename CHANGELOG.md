@@ -1,3 +1,10 @@
+## [1.5.3](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.5.2...v1.5.3) (2026-07-08)
+
+
+### Bug Fixes
+
+* publish to npm via OIDC (Node 20, npm publish --provenance) ([#72](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/issues/72)) ([f3bae2a](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/commit/f3bae2abe3d0d25c693300255e8bf2bb51521f1e))
+
 ## [1.5.2](https://github.com/Basis-Theory/basistheory-reactor-formulas-sdk-js/compare/v1.5.1...v1.5.2) (2025-01-21)
 
 
